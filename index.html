@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>FOODIE</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">    
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgxu6PdlRpm2-TwzK-vanmUFhmBgNFoNA&libraries=places&callback=initMap" async defer></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <style>
+            .dropdown-menu a:hover {
+                background-color: #ddd;
+            }
+            .dropdown:hover .dropdown-menu {
+                display: block;
+            }
+            .info,.name,.time{
+                color: black;
+                font-weight: bold;
+            }
+        </style>        
+        <script>
+            function welcome(){
+                swal("FOODIE", "satisfy your hunger.!");
+            }
+        </script>
+    </head>
+    <body onload="welcome()" style="background: -webkit-linear-gradient(left, #ff6d6d, #ff906b);background: linear-gradient(to right, #ff6d6d, #ff906b);">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Foodie</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <!--<li><a href="#">Link <span class="sr-only"></span></a></li>-->
+                        <li><a href="nearby.html">Nearby</a></li>
+                        <!--<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>-->
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#" onclick="openNav()">Account&nbsp;&nbsp;<i class="fa fa-user" style="color: white;font-size: 25px"></i></a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                    </form>          
+                </div>
+            </div>
+        </nav>
+        
+        <div class="container">
+            <div class="col-sm-6">
+                <div class="box">
+                    <ul id="first-list">
+                        <li>
+                            <span></span>
+                            <!--<div class="title">comment #01</div>-->
+                            <div class="info">We guys were chilling in our room and were too lazy to go and buy our dinner. Out of blue, an idea of starting an online food delivery "FOODIE" struck us. So it was it.</div>
+                            <div class="name">- Pratik Bhuwalka</div>
+                            <div class="time">
+                                <span>DEC, 18<sup>th </sup></span>
+                            </div>
+                        </li>
+                        <li>
+                            <span></span>
+                            <!--<div class="title">summery #01</div>-->
+                            <div class="info">Till now, we have been successful and have been able to deliver food in Vellore via FOODIE. The first month was very crucial as it was very difficult task to have the survey of the city.</div>
+                            <div class="name">- Piyush Gutgutia</div>
+                            <div class="time">
+                                <span>JAN, 29<sup>th </sup></span>
+                            </div>
+                        </li>
+                        <li>
+                            <span></span>
+                            <!--<div class="title">comment #02</div>-->
+                            <div class="info">The website got a good google page rank and we have expanded our services to KANPUR, MUMBAI, CHENNAI, BANGALORE, NEW DELHI &amp; KOLKATA</div>
+                            <div class="name">- Parmeet Singh</div>
+                            <div class="time">
+                                <span>MAR, 20<sup>th </sup></span>
+                            </div>
+                        </li>                
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <img src="foodie.jpg" alt="pic">
+            </div>
+        </div>
+        
+        
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a><h1>Login</h1></a>
+            <a href="register.html"><h4>or Create an Account</h4></a>
+            <a></a>
+            <form class="login" name="login" method="post" action="login.php">
+                <a><input type="text" id="user" name="username" placeholder="Username"></a>
+                <a><input type="password" id="pwd" name="password" placeholder="Password"></a>
+                <a><input type="submit" value="Login"></a>
+            </form>
+        </div>
+        <script>
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "380px";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+            }
+        </script>
+        
+        <div class="container_loc">
+            <div class="container_loc_text">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; New Delhi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x25CF;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kanpur &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x25CF;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Vellore &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x25CF;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mumbai &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x25CF;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Chennai &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x25CF;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Bangalore &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x25CF;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kolkata
+            </div>
+        </div>
+        <div class="container_footer">
+            <div class="row footer1">
+                <div class="col-sm-3">
+                    <div class="company">
+                        <h2>Company</h2>
+                        <h4>About Us</h4>
+                        <h4>Team</h4>
+                        <h4>Career</h4>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="contact">
+                        <h2>Contact Us</h2>
+                        <h4>Help &amp; Support</h4>
+                        <h4>Partner with us</h4>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="legal">
+                        <h2>Legal</h2>
+                        <h4>Terms &amp; Condition</h4>
+                        <h4>Refund &amp; Cancellation</h4>
+                        <h4>Privacy Policy</h4>
+                        <h4>Offer Terms</h4>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <h2>Location</h2>
+                    <div id="map"></div>
+                    <script>
+                      function initMap() {
+                        var uluru = {lat: 12.9718, lng: 79.1589};
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                          zoom: 15,
+                          center: uluru
+                        });
+                        var marker = new google.maps.Marker({
+                          position: uluru,
+                          map: map
+                        });
+                      }
+                    </script>
+                </div>
+            </div>
+            <div class="row footer2">
+                <div class="col-sm-4">FOODIE</div>
+                <div class="col-sm-4">&copy;2018 Foodie</div>
+                <div class="col-sm-4">
+                    <a href="https://www.facebook.com/parmeet12singh" target="_blank"><i class="fa fa-facebook-f" style="color: white; padding-right: 25px;"></i></a>
+                    <a href="https://twitter.com/parmeet12singh" target="_blank"><i class="fa fa-twitter" style="color: white; padding-right: 25px;"></i></a>
+                    <a href="https://www.instagram.com/parmeet12singh/" target="_blank"><i class="fa fa-instagram" style="color: white; padding-right: 25px;"></i></a>
+                    <a href="https://in.pinterest.com/parmeet12singh" target="_blank"><i class="fa fa-pinterest" style="color: white; padding-right: 25px;"></i></a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
